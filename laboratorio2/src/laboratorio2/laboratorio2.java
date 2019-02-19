@@ -3,11 +3,15 @@
  */
 package laboratorio2;
 
+import javax.swing.JOptionPane;
+
 public class laboratorio2 extends javax.swing.JFrame {
 
-int[][] numeroale= new int[10][10];
+int[][] numeroale= new int[10][10]; //matris que contiene los datos de los 10 empleados
 int[] departa = new int[5];
 int[] ISR = new int[10];
+String opcion, opcion1, opcion2,opcion3,opcion4,opcion5; //variables que permiten comparar si se calcula bonificacion,comision,igss, descuento judicial etc.
+int opc,opc1,opc2,opc3,opc4,opc5;
    
     public laboratorio2() {
         initComponents();
@@ -134,9 +138,11 @@ int[] ISR = new int[10];
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(204, 204, 255));
         jPanel1.setToolTipText("");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Ltitulo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Ltitulo.setText("PLANILLA");
+        jPanel1.add(Ltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 11, 127, 48));
 
         Tnombre1.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,57 +155,95 @@ int[] ISR = new int[10];
                 Tnombre1KeyReleased(evt);
             }
         });
+        jPanel1.add(Tnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 108, 130, -1));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel1.setText("Nombre");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 77, 93, 20));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel2.setText("Sueldo Base");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel3.setText("Bonificaciones");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel4.setText("Comisiones");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 92, 20));
 
         jLabel5.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel5.setText("IGSS");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 40, -1));
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel6.setText("Descuento Judicial");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 80, -1, 23));
 
         jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel7.setText("ISR Total");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(842, 80, -1, 22));
 
         jLabel8.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel8.setText("Sueldo Liquido");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 76, -1, 23));
 
         Lsuelbase1.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase1.setOpaque(true);
+        jPanel1.add(Lsuelbase1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 104, 100, 27));
 
         Lboni1.setBackground(new java.awt.Color(204, 204, 255));
         Lboni1.setOpaque(true);
+        jPanel1.add(Lboni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 104, 92, 27));
 
         Lcomi1.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi1.setOpaque(true);
+        jPanel1.add(Lcomi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 104, 90, 27));
 
         Ligss1.setBackground(new java.awt.Color(204, 204, 255));
         Ligss1.setOpaque(true);
+        jPanel1.add(Ligss1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 104, 90, 27));
 
         Ldescjudi1.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi1.setOpaque(true);
+        jPanel1.add(Ldescjudi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 104, 124, 27));
 
         Lisrtotal1.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal1.setOpaque(true);
+        jPanel1.add(Lisrtotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 104, 100, 27));
 
         Ldepar1.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar1.setOpaque(true);
+        jPanel1.add(Ldepar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 104, 87, 27));
 
         jLabel9.setFont(new java.awt.Font("Comic Sans MS", 1, 13)); // NOI18N
         jLabel9.setText("Departamento");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1062, 76, 107, 23));
 
         Lsueliqui1.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui1.setOpaque(true);
+        jPanel1.add(Lsueliqui1, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 104, 93, 27));
+
+        Ltotal1.setBackground(new java.awt.Color(204, 204, 255));
+        Ltotal1.setOpaque(true);
+        jPanel1.add(Ltotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 77, 23));
+
+        Ltotal2.setBackground(new java.awt.Color(204, 204, 255));
+        Ltotal2.setOpaque(true);
+        jPanel1.add(Ltotal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 76, 23));
+
+        Ltotal3.setBackground(new java.awt.Color(204, 204, 255));
+        Ltotal3.setOpaque(true);
+        jPanel1.add(Ltotal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, 68, 23));
+
+        Ltotal4.setBackground(new java.awt.Color(204, 204, 255));
+        Ltotal4.setOpaque(true);
+        jPanel1.add(Ltotal4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 490, 72, 22));
+
+        Ltotal5.setBackground(new java.awt.Color(204, 204, 255));
+        Ltotal5.setOpaque(true);
+        jPanel1.add(Ltotal5, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, 73, 22));
 
         Tnombre2.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre2.addActionListener(new java.awt.event.ActionListener() {
@@ -207,6 +251,7 @@ int[] ISR = new int[10];
                 Tnombre2ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 144, 130, -1));
 
         Tnombre3.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre3.addActionListener(new java.awt.event.ActionListener() {
@@ -214,6 +259,7 @@ int[] ISR = new int[10];
                 Tnombre3ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 176, 130, 33));
 
         Tnombre4.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre4.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +267,7 @@ int[] ISR = new int[10];
                 Tnombre4ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 215, 130, -1));
 
         Tnombre5.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre5.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +275,7 @@ int[] ISR = new int[10];
                 Tnombre5ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 246, 130, -1));
 
         Tnombre6.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre6.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +283,7 @@ int[] ISR = new int[10];
                 Tnombre6ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 278, 130, -1));
 
         Tnombre7.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre7.addActionListener(new java.awt.event.ActionListener() {
@@ -242,6 +291,7 @@ int[] ISR = new int[10];
                 Tnombre7ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 309, 130, -1));
 
         Tnombre8.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre8.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +299,7 @@ int[] ISR = new int[10];
                 Tnombre8ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 339, 130, -1));
 
         Tnombre9.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre9.addActionListener(new java.awt.event.ActionListener() {
@@ -256,6 +307,7 @@ int[] ISR = new int[10];
                 Tnombre9ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre9, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 370, 130, -1));
 
         Tnombre10.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre10.addActionListener(new java.awt.event.ActionListener() {
@@ -263,753 +315,409 @@ int[] ISR = new int[10];
                 Tnombre10ActionPerformed(evt);
             }
         });
+        jPanel1.add(Tnombre10, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 400, 130, 24));
 
         Lsuelbase2.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase2.setOpaque(true);
+        jPanel1.add(Lsuelbase2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 144, 100, 25));
 
         Lsuelbase3.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase3.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase3.setOpaque(true);
+        jPanel1.add(Lsuelbase3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 176, 100, 33));
 
         Lsuelbase4.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase4.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase4.setOpaque(true);
+        jPanel1.add(Lsuelbase4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 215, 100, 25));
 
         Lsuelbase5.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase5.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase5.setOpaque(true);
+        jPanel1.add(Lsuelbase5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 246, 100, 25));
 
         Lsuelbase6.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase6.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase6.setOpaque(true);
+        jPanel1.add(Lsuelbase6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 278, 100, 25));
 
         Lsuelbase7.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase7.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase7.setOpaque(true);
+        jPanel1.add(Lsuelbase7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 309, 100, 25));
 
         Lsuelbase8.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase8.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase8.setOpaque(true);
+        jPanel1.add(Lsuelbase8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 339, 100, 25));
 
         Lsuelbase9.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase9.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase9.setOpaque(true);
+        jPanel1.add(Lsuelbase9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 100, 25));
 
         Lsuelbase10.setBackground(new java.awt.Color(204, 204, 255));
         Lsuelbase10.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lsuelbase10.setOpaque(true);
+        jPanel1.add(Lsuelbase10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 100, 24));
 
         Lboni2.setBackground(new java.awt.Color(204, 204, 255));
         Lboni2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni2.setOpaque(true);
+        jPanel1.add(Lboni2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 144, 92, 25));
 
         Lboni3.setBackground(new java.awt.Color(204, 204, 255));
         Lboni3.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni3.setOpaque(true);
+        jPanel1.add(Lboni3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 176, 92, 33));
 
         Lboni4.setBackground(new java.awt.Color(204, 204, 255));
         Lboni4.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni4.setOpaque(true);
+        jPanel1.add(Lboni4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 215, 92, 25));
 
         Lboni5.setBackground(new java.awt.Color(204, 204, 255));
         Lboni5.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni5.setOpaque(true);
+        jPanel1.add(Lboni5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 246, 92, 25));
 
         Lboni6.setBackground(new java.awt.Color(204, 204, 255));
         Lboni6.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni6.setOpaque(true);
+        jPanel1.add(Lboni6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 278, 92, 25));
 
         Lboni7.setBackground(new java.awt.Color(204, 204, 255));
         Lboni7.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni7.setOpaque(true);
+        jPanel1.add(Lboni7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 309, 92, 25));
 
         Lboni8.setBackground(new java.awt.Color(204, 204, 255));
         Lboni8.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni8.setOpaque(true);
+        jPanel1.add(Lboni8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 339, 92, 25));
 
         Lboni9.setBackground(new java.awt.Color(204, 204, 255));
         Lboni9.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni9.setOpaque(true);
+        jPanel1.add(Lboni9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 92, 25));
 
         Lboni10.setBackground(new java.awt.Color(204, 204, 255));
         Lboni10.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lboni10.setOpaque(true);
+        jPanel1.add(Lboni10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 92, 24));
 
         Lcomi2.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi2.setOpaque(true);
+        jPanel1.add(Lcomi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 144, 90, 25));
 
         Lcomi3.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi3.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi3.setOpaque(true);
+        jPanel1.add(Lcomi3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 176, 90, 33));
 
         Lcomi4.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi4.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi4.setOpaque(true);
+        jPanel1.add(Lcomi4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 215, 90, 26));
 
         Lcomi5.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi5.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi5.setOpaque(true);
+        jPanel1.add(Lcomi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 246, 90, 25));
 
         Lcomi6.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi6.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi6.setOpaque(true);
+        jPanel1.add(Lcomi6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 278, 90, 24));
 
         Lcomi7.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi7.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi7.setOpaque(true);
+        jPanel1.add(Lcomi7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 309, 90, 25));
 
         Lcomi8.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi8.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi8.setOpaque(true);
+        jPanel1.add(Lcomi8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 339, 90, 25));
 
         Lcomi9.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi9.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi9.setOpaque(true);
+        jPanel1.add(Lcomi9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 90, 25));
 
         Lcomi10.setBackground(new java.awt.Color(204, 204, 255));
         Lcomi10.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         Lcomi10.setOpaque(true);
+        jPanel1.add(Lcomi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 90, 24));
 
         Ligss2.setBackground(new java.awt.Color(204, 204, 255));
         Ligss2.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss2.setOpaque(true);
+        jPanel1.add(Ligss2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 144, 90, 25));
 
         Ligss3.setBackground(new java.awt.Color(204, 204, 255));
         Ligss3.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss3.setOpaque(true);
+        jPanel1.add(Ligss3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 176, 90, 33));
 
         Ligss4.setBackground(new java.awt.Color(204, 204, 255));
         Ligss4.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss4.setOpaque(true);
+        jPanel1.add(Ligss4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 215, 90, 26));
 
         Ligss5.setBackground(new java.awt.Color(204, 204, 255));
         Ligss5.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss5.setOpaque(true);
+        jPanel1.add(Ligss5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 246, 90, 25));
 
         Ligss6.setBackground(new java.awt.Color(204, 204, 255));
         Ligss6.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss6.setOpaque(true);
+        jPanel1.add(Ligss6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 278, 90, 24));
 
         Ligss7.setBackground(new java.awt.Color(204, 204, 255));
         Ligss7.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss7.setOpaque(true);
+        jPanel1.add(Ligss7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 309, 90, 25));
 
         Ligss8.setBackground(new java.awt.Color(204, 204, 255));
         Ligss8.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss8.setOpaque(true);
+        jPanel1.add(Ligss8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 339, 90, 25));
 
         Ligss9.setBackground(new java.awt.Color(204, 204, 255));
         Ligss9.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss9.setOpaque(true);
+        jPanel1.add(Ligss9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 90, 25));
 
         Ligss10.setBackground(new java.awt.Color(204, 204, 255));
         Ligss10.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ligss10.setOpaque(true);
+        jPanel1.add(Ligss10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 90, 24));
 
         Ldescjudi2.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi2.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi2.setToolTipText("");
         Ldescjudi2.setOpaque(true);
+        jPanel1.add(Ldescjudi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 144, 124, 25));
 
         Ldescjudi3.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi3.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi3.setToolTipText("");
         Ldescjudi3.setOpaque(true);
+        jPanel1.add(Ldescjudi3, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 184, 124, 25));
 
         Ldescjudi4.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi4.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi4.setToolTipText("");
         Ldescjudi4.setOpaque(true);
+        jPanel1.add(Ldescjudi4, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 215, 124, 26));
 
         Ldescjudi5.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi5.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi5.setToolTipText("");
         Ldescjudi5.setOpaque(true);
+        jPanel1.add(Ldescjudi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 246, 124, 25));
 
         Ldescjudi6.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi6.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi6.setToolTipText("");
         Ldescjudi6.setOpaque(true);
+        jPanel1.add(Ldescjudi6, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 278, 124, 24));
 
         Ldescjudi7.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi7.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi7.setToolTipText("");
         Ldescjudi7.setOpaque(true);
+        jPanel1.add(Ldescjudi7, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 309, 124, 25));
 
         Ldescjudi8.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi8.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi8.setToolTipText("");
         Ldescjudi8.setOpaque(true);
+        jPanel1.add(Ldescjudi8, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 339, 124, 25));
 
         Ldescjudi9.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi9.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi9.setToolTipText("");
         Ldescjudi9.setOpaque(true);
+        jPanel1.add(Ldescjudi9, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 370, 124, 25));
 
         Ldescjudi10.setBackground(new java.awt.Color(204, 204, 255));
         Ldescjudi10.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldescjudi10.setToolTipText("");
         Ldescjudi10.setOpaque(true);
+        jPanel1.add(Ldescjudi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 400, 124, 24));
 
         Lisrtotal2.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal2.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal2.setToolTipText("");
         Lisrtotal2.setOpaque(true);
+        jPanel1.add(Lisrtotal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 144, 100, 25));
 
         Lisrtotal3.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal3.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal3.setToolTipText("");
         Lisrtotal3.setOpaque(true);
+        jPanel1.add(Lisrtotal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 176, 100, 33));
 
         Lisrtotal4.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal4.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal4.setToolTipText("");
         Lisrtotal4.setOpaque(true);
+        jPanel1.add(Lisrtotal4, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 215, 100, 26));
 
         Lisrtotal5.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal5.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal5.setToolTipText("");
         Lisrtotal5.setOpaque(true);
+        jPanel1.add(Lisrtotal5, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 246, 100, 25));
 
         Lisrtotal6.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal6.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal6.setToolTipText("");
         Lisrtotal6.setOpaque(true);
+        jPanel1.add(Lisrtotal6, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 278, 100, 24));
 
         Lisrtotal7.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal7.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal7.setToolTipText("");
         Lisrtotal7.setOpaque(true);
+        jPanel1.add(Lisrtotal7, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 309, 100, 25));
 
         Lisrtotal8.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal8.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal8.setToolTipText("");
         Lisrtotal8.setOpaque(true);
+        jPanel1.add(Lisrtotal8, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 339, 100, 25));
 
         Lisrtotal9.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal9.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal9.setToolTipText("");
         Lisrtotal9.setOpaque(true);
+        jPanel1.add(Lisrtotal9, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 370, 100, 25));
 
         Lisrtotal10.setBackground(new java.awt.Color(204, 204, 255));
         Lisrtotal10.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lisrtotal10.setToolTipText("");
         Lisrtotal10.setOpaque(true);
+        jPanel1.add(Lisrtotal10, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 400, 100, 24));
 
         Lsueliqui2.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui2.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui2.setToolTipText("");
         Lsueliqui2.setOpaque(true);
+        jPanel1.add(Lsueliqui2, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 144, 93, 26));
 
         Lsueliqui3.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui3.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui3.setToolTipText("");
         Lsueliqui3.setOpaque(true);
+        jPanel1.add(Lsueliqui3, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 176, 93, 33));
 
         Lsueliqui4.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui4.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui4.setToolTipText("");
         Lsueliqui4.setOpaque(true);
+        jPanel1.add(Lsueliqui4, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 215, 93, 26));
 
         Lsueliqui5.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui5.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui5.setToolTipText("");
         Lsueliqui5.setOpaque(true);
+        jPanel1.add(Lsueliqui5, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 246, 93, 25));
 
         Lsueliqui6.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui6.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui6.setToolTipText("");
         Lsueliqui6.setOpaque(true);
+        jPanel1.add(Lsueliqui6, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 279, 93, 24));
 
         Lsueliqui7.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui7.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui7.setToolTipText("");
         Lsueliqui7.setOpaque(true);
+        jPanel1.add(Lsueliqui7, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 309, 93, 25));
 
         Lsueliqui8.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui8.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui8.setToolTipText("");
         Lsueliqui8.setOpaque(true);
+        jPanel1.add(Lsueliqui8, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 339, 93, 25));
 
         Lsueliqui9.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui9.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui9.setToolTipText("");
         Lsueliqui9.setOpaque(true);
+        jPanel1.add(Lsueliqui9, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 370, 93, 25));
 
         Lsueliqui10.setBackground(new java.awt.Color(204, 204, 255));
         Lsueliqui10.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Lsueliqui10.setToolTipText("");
         Lsueliqui10.setOpaque(true);
+        jPanel1.add(Lsueliqui10, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 400, 93, 24));
 
         Ldepar2.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar2.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar2.setOpaque(true);
+        jPanel1.add(Ldepar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 144, 86, 26));
 
         Ldepar3.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar3.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar3.setOpaque(true);
+        jPanel1.add(Ldepar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 176, 86, 33));
 
         Ldepar4.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar4.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar4.setOpaque(true);
+        jPanel1.add(Ldepar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 215, 86, 26));
 
         Ldepar5.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar5.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar5.setOpaque(true);
+        jPanel1.add(Ldepar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 246, 86, 25));
 
         Ldepar6.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar6.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar6.setOpaque(true);
+        jPanel1.add(Ldepar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 277, 86, 26));
 
         Ldepar7.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar7.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar7.setOpaque(true);
+        jPanel1.add(Ldepar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 309, 86, 25));
 
         Ldepar8.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar8.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar8.setOpaque(true);
+        jPanel1.add(Ldepar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 339, 86, 25));
 
         Ldepar9.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar9.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar9.setOpaque(true);
+        jPanel1.add(Ldepar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 370, 86, 25));
 
         Ldepar10.setBackground(new java.awt.Color(204, 204, 255));
         Ldepar10.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Ldepar10.setOpaque(true);
+        jPanel1.add(Ldepar10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 400, 86, 24));
 
         jLabel10.setText("DEPARTAMENTO 1");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
 
         jLabel11.setText("DEPARTAMENTO 2");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, -1, -1));
 
         jLabel12.setText("DEPARTAMENTO 3");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, -1, -1));
 
         jLabel13.setText("DEPARTAMENTO 4");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, -1, -1));
 
         jLabel14.setText("DEPARTAMENTO 5");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(527, 527, 527)
-                        .addComponent(Ltitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Tnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(Lsuelbase5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Tnombre4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(Lsuelbase4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Lboni4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Lcomi4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ligss4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(184, 184, 184)
-                                .addComponent(Lisrtotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Lsueliqui4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ldepar4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Lboni5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Lcomi5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ligss5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(184, 184, 184)
-                                .addComponent(Lisrtotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Lsueliqui5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Ldepar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Tnombre7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tnombre8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tnombre9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Tnombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Lsuelbase7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lsuelbase8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lsuelbase9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lsuelbase10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Lboni7, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lboni8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lboni9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Lboni10, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel10)
-                            .addComponent(Ltotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Lcomi7, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                                .addComponent(Lcomi9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Lcomi8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Lcomi10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(Ltotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Ligss8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Ligss7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Ligss9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Ligss10, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(Ltotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel12))))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13)
-                            .addComponent(Ltotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(Ltotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel14))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Tnombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(Lsuelbase2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(Lboni2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Lcomi2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Tnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(Lsuelbase1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(Lboni1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Lcomi1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Ligss1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                                    .addComponent(Ligss2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(184, 184, 184)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Lisrtotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Lsueliqui3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Lisrtotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Lsueliqui1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Lisrtotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Lsueliqui2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(Ldepar1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(75, 75, 75)
-                                        .addComponent(jLabel2)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jLabel3)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Tnombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(Lsuelbase3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(Lboni3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Lcomi3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Ligss3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(Tnombre6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(Lsuelbase6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(Lboni6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Lcomi6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Ligss6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Ldescjudi4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(Ldescjudi1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel6)
-                                            .addComponent(Ldescjudi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(Ldescjudi3, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(31, 31, 31)
-                                                .addComponent(jLabel7)
-                                                .addGap(47, 47, 47)
-                                                .addComponent(jLabel8)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(252, 252, 252)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(Ldepar3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(Ldepar2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addComponent(Ldescjudi5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Ldescjudi10, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(Lisrtotal10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Ldescjudi9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(Lisrtotal9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Ldescjudi8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(Lisrtotal8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Ldescjudi7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(Lisrtotal7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Ldescjudi6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(23, 23, 23)
-                                                .addComponent(Lisrtotal6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Lsueliqui6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Ldepar6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Lsueliqui7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Ldepar7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Lsueliqui8, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Ldepar8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Lsueliqui9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Ldepar9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(Lsueliqui10, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(Ldepar10, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(20, 20, 20)))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(Ltitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel2))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel3))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabel5))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Lsuelbase1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(Tnombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(Lisrtotal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                                        .addComponent(Ldescjudi1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Lboni1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Lcomi1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Ligss1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(Lsueliqui1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Ldepar1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Lsueliqui2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Ldepar2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(Lisrtotal2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Ldescjudi2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Ligss2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Lboni2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Lsuelbase2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(Tnombre2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Lcomi2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Tnombre3, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                                    .addComponent(Lsueliqui3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Ldepar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Lsuelbase3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Lboni3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Lcomi3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Ligss3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Lisrtotal3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(Ldescjudi3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Tnombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Lsuelbase4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Lboni4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Lisrtotal4, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                                .addComponent(Lcomi4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Ligss4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Ldescjudi4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Lsueliqui4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Ldepar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Lsueliqui5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lisrtotal5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ldescjudi5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ligss5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lcomi5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lboni5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Lsuelbase5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Tnombre5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Ldepar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Lsuelbase6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Tnombre6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Lboni6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(Lisrtotal6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                                    .addComponent(Lcomi6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Ligss6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Ldescjudi6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(Ldepar6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lsueliqui6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Ldepar7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lisrtotal7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ldescjudi7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ligss7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lcomi7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lboni7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lsuelbase7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Tnombre7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Lsueliqui7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Ldepar8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lsueliqui8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ldescjudi8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lcomi8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lboni8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Tnombre8)
-                    .addComponent(Lsuelbase8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ligss8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lisrtotal8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Ldepar9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lsueliqui9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lisrtotal9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ldescjudi9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ligss9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lcomi9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lboni9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Tnombre9)
-                    .addComponent(Lsuelbase9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Ligss10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Tnombre10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Lsuelbase10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lboni10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lcomi10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Ldescjudi10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lisrtotal10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Lsueliqui10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Ldepar10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ltotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ltotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ltotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ltotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ltotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 470, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1019,7 +727,7 @@ int[] ISR = new int[10];
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
         );
 
         pack();
@@ -1027,7 +735,7 @@ int[] ISR = new int[10];
 
     private void Tnombre10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tnombre10ActionPerformed
         String nombre10=Tnombre10.getText();
-        if(nombre10.equals("")==false && nombre10.matches("[a-zA-Z]*"))
+        if(nombre10.equals("")==false && nombre10.matches("[a-zA-Z]*")) // si se ingresa una letra o nombre  en el Text empezara a ejecutarse la condicion
         {
             for(int i=0; i<=5;i++)
             {
@@ -1245,7 +953,8 @@ int[] ISR = new int[10];
         String nombre6=Tnombre6.getText();
         if(nombre6.equals("")==false && nombre6.matches("[a-zA-Z]*"))
         {
-            for(int i=0; i<=5;i++)
+            
+           for(int i=0; i<=5;i++)
             {
                 numeroale[5][i]=2000+(int)(Math.random()*5000);
                 Lsuelbase6.setText(""+numeroale[5][0]);
@@ -1299,21 +1008,86 @@ int[] ISR = new int[10];
         String nombre5=Tnombre5.getText();
         if(nombre5.equals("")==false && nombre5.matches("[a-zA-Z]*"))
         {
-            for(int i=0; i<=5;i++)
-            {
-                numeroale[4][i]=2000+(int)(Math.random()*5000);
+                numeroale[4][0]=2000+(int)(Math.random()*5000);
                 Lsuelbase5.setText(""+numeroale[4][0]);
-                Lboni5.setText(""+numeroale[4][1]);
-                Lcomi5.setText(""+numeroale[4][2]);
-                Ligss5.setText(""+numeroale[4][3]);
-                Ldescjudi5.setText(""+numeroale[4][4]);
-            }
-            if(numeroale[4][0]>=2600 || numeroale[4][0]<=5000)
+                
+                
+                              
+        
+        opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
+        opc=Integer.parseInt(opcion);
+            if(opc==1)
             {
-                ISR[4]=(int) (numeroale[4][0]*0.03);
-                Lisrtotal5.setText(""+ISR[4]);
+                numeroale[4][1]=250;
+                Lboni5.setText(""+numeroale[4][1]);
             }
-
+            else if(opc==0)
+            {
+                numeroale[4][1]=0;
+                Lboni5.setText(""+numeroale[4][1]);
+            }
+            
+        opcion1=JOptionPane.showInputDialog("DESEA CALCULAR COMISIONES \n 1. SI  \n 0. NO");
+        opc1=Integer.parseInt(opcion1);
+            if(opc1==1)
+            {
+               numeroale[4][2]=200+(int)(Math.random()*500);
+               Lcomi5.setText(""+numeroale[4][2]);
+            }
+            else if(opc1==0)
+            {
+                numeroale[4][2]=0;  
+                Lcomi5.setText(""+numeroale[4][2]); 
+            }
+            
+        opcion2=JOptionPane.showInputDialog("DESEA CALCULAR IGSS \n 1. SI  \n 0. NO");
+        opc2=Integer.parseInt(opcion2);
+            if(opc2==1)
+            {
+               numeroale[4][3]=200+(int)(Math.random()*500);
+               Ligss5.setText(""+numeroale[4][3]);
+            }
+            else if(opc2==0)
+            {
+              numeroale[4][3]=0;
+              Ligss5.setText(""+numeroale[4][3]);   
+            }
+            
+        opcion3=JOptionPane.showInputDialog("DESEA CALCULAR DESCUENTO JUDICIAL \n 1. SI  \n 0. NO");
+        opc3=Integer.parseInt(opcion3);
+            if(opc3==1)
+            {
+               numeroale[4][4]=200+(int)(Math.random()*500);
+               Ldescjudi5.setText(""+numeroale[4][4]);
+            }
+            else if(opc3==0)
+            {
+               numeroale[4][4]=0;
+               Ldescjudi5.setText(""+numeroale[4][4]);     
+            }
+            
+        opcion4=JOptionPane.showInputDialog("DESEA CALCULAR ISR \n 1. SI  \n 0. NO");
+        opc4=Integer.parseInt(opcion4);
+            if(opc4==1)
+            {
+                // verifica si el salario base se encuentra en los parametros indicados
+              if(numeroale[4][0]>=2600 && numeroale[4][0]<=5000)
+                {
+                    ISR[4]=(int) (numeroale[4][0]*0.03);
+                    Lisrtotal5.setText(""+ISR[4]);
+                }
+                else if(numeroale[4][0]>=5000 && numeroale[4][0]<=10000)
+                {
+                  ISR[4]=(int) (numeroale[4][0]*0.05);
+                  Lisrtotal5.setText(""+ISR[4]);
+                }
+            }
+            else if(opc4==0)
+            {
+                ISR[4]=0;
+                Lisrtotal5.setText(""+ISR[4]);   
+            }   
+      
             numeroale[4][5]=numeroale[4][0]+numeroale[4][1]+numeroale[4][2]-numeroale[4][3]-numeroale[4][4]-ISR[4];
             Lsueliqui5.setText(""+numeroale[4][5]);
 
@@ -1353,21 +1127,83 @@ int[] ISR = new int[10];
         String nombre4=Tnombre4.getText();
         if(nombre4.equals("")==false && nombre4.matches("[a-zA-Z]*"))
         {
-            for(int i=0; i<=5;i++)
-            {
-                numeroale[3][i]=2000+(int)(Math.random()*5000);
+               numeroale[3][0]=2000+(int)(Math.random()*5000);
                 Lsuelbase4.setText(""+numeroale[3][0]);
-                Lboni4.setText(""+numeroale[3][1]);
-                Lcomi4.setText(""+numeroale[3][2]);
-                Ligss4.setText(""+numeroale[3][3]);
-                Ldescjudi4.setText(""+numeroale[3][4]);
-            }
-            if(numeroale[3][0]>=2600 || numeroale[3][0]<=5000)
+                
+        opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
+        opc=Integer.parseInt(opcion);
+            if(opc==1)
             {
-                ISR[3]=(int) (numeroale[3][0]*0.03);
-                Lisrtotal4.setText(""+ISR[3]);
+                numeroale[3][1]=250;
+               Lboni4.setText(""+numeroale[3][1]);
             }
-
+            else if(opc==0)
+            {
+                numeroale[3][1]=0;
+                Lboni4.setText(""+numeroale[3][1]);
+            }
+            
+        opcion1=JOptionPane.showInputDialog("DESEA CALCULAR COMISIONES \n 1. SI  \n 0. NO");
+        opc1=Integer.parseInt(opcion1);
+            if(opc1==1)
+            {
+               numeroale[3][2]=200+(int)(Math.random()*500);
+                Lcomi4.setText(""+numeroale[3][2]);
+            }
+            else if(opc1==0)
+            {
+                numeroale[3][2]=0;  
+                Lcomi4.setText(""+numeroale[3][2]); 
+            }
+            
+        opcion2=JOptionPane.showInputDialog("DESEA CALCULAR IGSS \n 1. SI  \n 0. NO");
+        opc2=Integer.parseInt(opcion2);
+            if(opc2==1)
+            {
+               numeroale[3][3]=200+(int)(Math.random()*500);
+                Ligss4.setText(""+numeroale[3][3]);
+            }
+            else if(opc2==0)
+            {
+                numeroale[2][3]=0;
+                Ligss4.setText(""+numeroale[4][3]);   
+            }
+            
+        opcion3=JOptionPane.showInputDialog("DESEA CALCULAR DESCUENTO JUDICIAL \n 1. SI  \n 0. NO");
+        opc3=Integer.parseInt(opcion3);
+               if(opc3==1)
+            {
+               numeroale[3][4]=200+(int)(Math.random()*500);
+               Ldescjudi4.setText(""+numeroale[3][4]);
+            }
+            else if(opc3==0)
+            {
+                numeroale[3][4]=0;
+               Ldescjudi4.setText(""+numeroale[3][4]);      
+            }
+            
+        opcion4=JOptionPane.showInputDialog("DESEA CALCULAR ISR \n 1. SI  \n 0. NO");
+        opc4=Integer.parseInt(opcion4);
+            if(opc4==1)
+            {
+                // verifica si el salario base se encuentra en los parametros indicados
+               if(numeroale[3][0]>=2600 || numeroale[3][0]<=5000)
+                {
+                    ISR[3]=(int) (numeroale[3][0]*0.03);
+                    Lisrtotal4.setText(""+ISR[3]);
+                }
+                else if(numeroale[3][0]>=5000 && numeroale[3][0]<=10000)
+                {
+                  ISR[3]=(int) (numeroale[3][0]*0.05);
+                  Lisrtotal4.setText(""+ISR[3]);
+                }
+            }
+            else if(opc4==0)
+            {
+                ISR[3]=0;
+                Lisrtotal4.setText(""+ISR[3]);   
+            }
+             
             numeroale[3][5]=numeroale[3][0]+numeroale[3][1]+numeroale[3][2]-numeroale[3][3]-numeroale[3][4]-ISR[3];
             Lsueliqui4.setText(""+numeroale[3][5]);
 
@@ -1408,21 +1244,85 @@ int[] ISR = new int[10];
         String nombre3=Tnombre3.getText();
         if(nombre3.equals("")==false && nombre3.matches("[a-zA-Z]*"))
         {
-            for(int i=0; i<=5;i++)
+            
+            numeroale[2][0]=2000+(int)(Math.random()*5000);
+            Lsuelbase3.setText(""+numeroale[2][0]);
+                      
+        opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
+        opc=Integer.parseInt(opcion);
+            if(opc==1)
             {
-                numeroale[2][i]=2000+(int)(Math.random()*5000);
-                Lsuelbase3.setText(""+numeroale[2][0]);
-                Lboni3.setText(""+numeroale[2][1]);
-                Lcomi3.setText(""+numeroale[2][2]);
+                numeroale[2][1]=250;
+               Lboni3.setText(""+numeroale[2][1]);
+            }
+            else if(opc==0)
+            {
+                numeroale[2][1]=0;
+                Lboni3.setText(""+numeroale[2][1]); 
+            }
+            
+        opcion1=JOptionPane.showInputDialog("DESEA CALCULAR COMISIONES \n 1. SI  \n 0. NO");
+        opc1=Integer.parseInt(opcion1);
+            if(opc1==1)
+            {
+               numeroale[2][2]=200+(int)(Math.random()*500);
+               Lcomi3.setText(""+numeroale[2][2]);
+            }
+            else if(opc1==0)
+            {
+                numeroale[2][2]=0;  
+                Lcomi3.setText(""+numeroale[2][2]); 
+            }
+            
+        opcion2=JOptionPane.showInputDialog("DESEA CALCULAR IGSS \n 1. SI  \n 0. NO");
+        opc2=Integer.parseInt(opcion2);
+            if(opc2==1)
+            {
+               numeroale[2][3]=200+(int)(Math.random()*500);
                 Ligss3.setText(""+numeroale[2][3]);
-                Ldescjudi3.setText(""+numeroale[2][4]);
             }
-            if(numeroale[2][0]>=2600 || numeroale[2][0]<=5000)
+            else if(opc2==0)
             {
-                ISR[2]=(int) (numeroale[2][0]*0.03);
-                Lisrtotal3.setText(""+ISR[2]);
+                numeroale[2][3]=0;
+                Ligss3.setText(""+numeroale[2][3]);   
             }
-
+            
+        opcion3=JOptionPane.showInputDialog("DESEA CALCULAR DESCUENTO JUDICIAL \n 1. SI  \n 0. NO");
+        opc3=Integer.parseInt(opcion3);
+               if(opc3==1)
+            {
+               numeroale[2][4]=200+(int)(Math.random()*500);
+               Ldescjudi3.setText(""+numeroale[2][4]);
+            }
+            else if(opc3==0)
+            {
+                numeroale[2][4]=0;
+                Ldescjudi3.setText(""+numeroale[2][4]);
+                   
+            }
+            
+        opcion4=JOptionPane.showInputDialog("DESEA CALCULAR ISR \n 1. SI  \n 0. NO");
+        opc4=Integer.parseInt(opcion4);
+            if(opc4==1)
+            {
+                // verifica si el salario base se encuentra en los parametros indicados
+                if(numeroale[2][0]>=2600 && numeroale[2][0]<=5000)
+                {
+                  ISR[2]=(int) (numeroale[2][0]*0.03);
+                  Lisrtotal3.setText(""+ISR[2]);
+                }
+                else if(numeroale[2][0]>=5000 && numeroale[2][0]<=10000)
+                {
+                  ISR[2]=(int) (numeroale[2][0]*0.05);
+                  Lisrtotal3.setText(""+ISR[2]);
+                }
+            }
+            else if(opc4==0)
+            {
+                ISR[2]=0;
+                Lisrtotal3.setText(""+ISR[2]);   
+            }
+            
             numeroale[2][5]=numeroale[2][0]+numeroale[2][1]+numeroale[2][2]-numeroale[2][3]-numeroale[2][4]-ISR[2];
             Lsueliqui3.setText(""+numeroale[2][5]);
 
@@ -1462,27 +1362,94 @@ int[] ISR = new int[10];
         String nombre2=Tnombre2.getText();
         if(nombre2.equals("")==false && nombre2.matches("[a-zA-Z]*"))
         {
-            for(int i=0; i<=5;i++)
+       
+            numeroale[1][0]=2000+(int)(Math.random()*5000);
+            Lsuelbase2.setText(""+numeroale[1][0]); 
+            
+        // verifica si se agrega bonificacion, comisiones, igss, descuento,isr    
+        opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
+        opc=Integer.parseInt(opcion);
+            if(opc==1)
             {
-                numeroale[1][i]=2000+(int)(Math.random()*5000);
-                Lsuelbase2.setText(""+numeroale[1][0]);
+                numeroale[1][1]=250;
                 Lboni2.setText(""+numeroale[1][1]);
-                Lcomi2.setText(""+numeroale[1][2]);
-                Ligss2.setText(""+numeroale[1][3]);
-                Ldescjudi2.setText(""+numeroale[1][4]);
             }
-            if(numeroale[1][0]>=2600 || numeroale[1][0]<=5000)
+            else if(opc==0)
             {
-                ISR[1]=(int) (numeroale[1][0]*0.03);
-                Lisrtotal2.setText(""+ISR[1]);
+                numeroale[1][1]=0;
+                Lboni2.setText(""+numeroale[1][1]);  
             }
+            
+        opcion1=JOptionPane.showInputDialog("DESEA CALCULAR COMISIONES \n 1. SI  \n 0. NO");
+        opc1=Integer.parseInt(opcion1);
+            if(opc1==1)
+            {
+               numeroale[1][2]=200+(int)(Math.random()*500);
+               Lcomi2.setText(""+numeroale[1][2]);
+            }
+            else if(opc1==0)
+            {
+                numeroale[1][2]=0;  
+                Lcomi2.setText(""+numeroale[1][2]);  
+            }
+            
+        opcion2=JOptionPane.showInputDialog("DESEA CALCULAR IGSS \n 1. SI  \n 0. NO");
+        opc2=Integer.parseInt(opcion2);
+            if(opc2==1)
+            {
+               numeroale[1][3]=200+(int)(Math.random()*500);
+               Ligss2.setText(""+numeroale[1][3]);
+            }
+            else if(opc2==0)
+            {
+                numeroale[1][3]=0;
+                 Ligss2.setText(""+numeroale[1][3]);   
+            }
+            
+        opcion3=JOptionPane.showInputDialog("DESEA CALCULAR DESCUENTO JUDICIAL \n 1. SI  \n 0. NO");
+        opc3=Integer.parseInt(opcion3);
+               if(opc3==1)
+            {
+               numeroale[1][4]=200+(int)(Math.random()*500);
+               Ldescjudi2.setText(""+numeroale[1][4]);
+            }
+            else if(opc3==0)
+            {
+                numeroale[1][4]=0;
+                Ldescjudi2.setText(""+numeroale[1][4]);
+                   
+            }
+            
+        opcion4=JOptionPane.showInputDialog("DESEA CALCULAR ISR \n 1. SI  \n 0. NO");
+        opc4=Integer.parseInt(opcion4);
+            if(opc4==1)
+            {
+                // verifica si el salario base se encuentra en los parametros indicados
+                if(numeroale[1][0]>=2600 && numeroale[1][0]<=5000)
+                {
+                  ISR[1]=(int) (numeroale[1][0]*0.03);
+                  Lisrtotal2.setText(""+ISR[1]);
+                }
+                else if(numeroale[1][0]>=5000 && numeroale[1][0]<=10000)
+                {
+                  ISR[1]=(int) (numeroale[1][0]*0.05);
+                  Lisrtotal2.setText(""+ISR[1]);
+                }
+            }
+            else if(opc4==0)
+            {
+                ISR[1]=0;
+                Lisrtotal2.setText(""+ISR[1]);   
+            }        
+           
 
             numeroale[1][5]=numeroale[1][0]+numeroale[1][1]+numeroale[1][2]-numeroale[1][3]-numeroale[1][4]-ISR[1];
             Lsueliqui2.setText(""+numeroale[1][5]);
-
+            
             numeroale[1][6]=1+(int)(Math.random()*5);
             Ldepar2.setText(""+numeroale[1][6]);
-
+            
+            // verifica si en dichas casillas se encuentra los valores 1,2,3,4,5 para colocarlos en los espacios correspondientes
             if(numeroale[1][6]==1)
             {
                 departa[0]+=numeroale[1][5];
@@ -1517,31 +1484,98 @@ int[] ISR = new int[10];
     }//GEN-LAST:event_Tnombre1KeyReleased
 
     private void Tnombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tnombre1ActionPerformed
-
+        
         String nombre1=Tnombre1.getText();
-        if(nombre1.equals("")==false && nombre1.matches("[a-zA-Z]*"))
+        
+        if(nombre1.equals("")==false && nombre1.matches("[a-zA-Z]*"))   // verifica si hay ingreso o no 
         {
-            for(int i=0; i<=5;i++)
-            {
-                numeroale[0][i]=2000+(int)(Math.random()*5000);
+           
+                numeroale[0][0]=2000+(int)(Math.random()*5000);
                 Lsuelbase1.setText(""+numeroale[0][0]);
-                Lboni1.setText(""+numeroale[0][1]);
-                Lcomi1.setText(""+numeroale[0][2]);
-                Ligss1.setText(""+numeroale[0][3]);
-                Ldescjudi1.setText(""+numeroale[0][4]);
-            }
-            if(numeroale[0][0]>=2600 || numeroale[0][0]<=5000)
+                
+         // verifica si se agrega bonificacion, comisiones, igss, descuento,isr    
+        opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
+        opc=Integer.parseInt(opcion);
+            if(opc==1)
             {
-                ISR[0]=(int) (numeroale[0][0]*0.03);
-                Lisrtotal1.setText(""+ISR[0]);
+                numeroale[0][1]=250;
+                Lboni1.setText(""+numeroale[0][1]);
             }
-
-            numeroale[0][5]=numeroale[0][0]+numeroale[0][1]+numeroale[0][2]-numeroale[0][3]-numeroale[0][4]-ISR[0];
-            Lsueliqui1.setText(""+numeroale[0][5]);
+            else if(opc==0)
+            {
+                numeroale[0][1]=0;
+                Lboni1.setText(""+numeroale[0][1]);   
+            }
+            
+        opcion1=JOptionPane.showInputDialog("DESEA CALCULAR COMISIONES \n 1. SI  \n 0. NO");
+        opc1=Integer.parseInt(opcion1);
+            if(opc1==1)
+            {
+               numeroale[0][2]=200+(int)(Math.random()*500);
+               Lcomi1.setText(""+numeroale[0][2]);
+            }
+            else if(opc1==0)
+            {
+                numeroale[0][2]=0;  
+                Lcomi1.setText(""+numeroale[0][2]);   
+            }
+            
+        opcion2=JOptionPane.showInputDialog("DESEA CALCULAR IGSS \n 1. SI  \n 0. NO");
+        opc2=Integer.parseInt(opcion2);
+            if(opc2==1)
+            {
+               numeroale[0][3]=200+(int)(Math.random()*500);
+               Ligss1.setText(""+numeroale[0][3]);
+            }
+            else if(opc2==0)
+            {
+                numeroale[0][3]=0;
+                Ligss1.setText(""+numeroale[0][3]);    
+            }
+            
+        opcion3=JOptionPane.showInputDialog("DESEA CALCULAR DESCUENTO JUDICIAL \n 1. SI  \n 0. NO");
+        opc3=Integer.parseInt(opcion3);
+               if(opc3==1)
+            {
+               numeroale[0][4]=200+(int)(Math.random()*500);
+               Ldescjudi1.setText(""+numeroale[0][4]);
+            }
+            else if(opc3==0)
+            {
+                numeroale[0][4]=0;
+                Ldescjudi1.setText(""+numeroale[0][4]);
+                   
+            }
+            
+        opcion4=JOptionPane.showInputDialog("DESEA CALCULAR ISR \n 1. SI  \n 0. NO");
+        opc4=Integer.parseInt(opcion4);
+            if(opc4==1)
+            {
+                // verifica si el salario base se encuentra en los parametros indicados
+                if(numeroale[0][0]>=2600 && numeroale[0][0]<=5000)
+                {
+                  ISR[0]=(int) (numeroale[0][0]*0.03);
+                  Lisrtotal1.setText(""+ISR[0]);
+                }
+                else if(numeroale[0][0]>=5000 && numeroale[0][0]<=10000)
+                {
+                  ISR[0]=(int) (numeroale[0][0]*0.05);
+                  Lisrtotal1.setText(""+ISR[0]);
+                }
+            }
+            else if(opc4==0)
+            {
+                ISR[0]=0;
+                Lisrtotal1.setText(""+ISR[0]);   
+            }   
+               
+        numeroale[0][5]=numeroale[0][0]+numeroale[0][1]+numeroale[0][2]-numeroale[0][3]-numeroale[0][4]-ISR[0];
+        Lsueliqui1.setText(""+numeroale[0][5]);
 
             numeroale[0][6]=1+(int)(Math.random()*5);
             Ldepar1.setText(""+numeroale[0][6]);
 
+            // verifica si en dichas casillas se encuentra los valores 1,2,3,4,5 para colocarlos en los espacios correspondientes
             if(numeroale[0][6]==1)
             {
                 departa[0]+=numeroale[0][5];
