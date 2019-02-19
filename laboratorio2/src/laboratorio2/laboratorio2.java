@@ -142,7 +142,7 @@ int opc,opc1,opc2,opc3,opc4,opc5;
 
         Ltitulo.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         Ltitulo.setText("PLANILLA");
-        jPanel1.add(Ltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 11, 127, 48));
+        jPanel1.add(Ltitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 127, 48));
 
         Tnombre1.setFont(new java.awt.Font("Comic Sans MS", 0, 13)); // NOI18N
         Tnombre1.addActionListener(new java.awt.event.ActionListener() {
@@ -953,22 +953,83 @@ int opc,opc1,opc2,opc3,opc4,opc5;
         String nombre6=Tnombre6.getText();
         if(nombre6.equals("")==false && nombre6.matches("[a-zA-Z]*"))
         {
-            
-           for(int i=0; i<=5;i++)
-            {
-                numeroale[5][i]=2000+(int)(Math.random()*5000);
+                numeroale[5][0]=2000+(int)(Math.random()*5000);
                 Lsuelbase6.setText(""+numeroale[5][0]);
-                Lboni6.setText(""+numeroale[5][1]);
-                Lcomi6.setText(""+numeroale[5][2]);
-                Ligss6.setText(""+numeroale[5][3]);
-                Ldescjudi6.setText(""+numeroale[5][4]);
-            }
-            if(numeroale[5][0]>=2600 || numeroale[5][0]<=5000)
+            
+            opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
+        opc=Integer.parseInt(opcion);
+            if(opc==1)
             {
-                ISR[5]=(int) (numeroale[5][0]*0.03);
-                Lisrtotal6.setText(""+ISR[5]);
+                numeroale[5][1]=250;
+                 Lboni6.setText(""+numeroale[5][1]);
             }
-
+            else if(opc==0)
+            {
+                numeroale[5][1]=0;
+                Lboni6.setText(""+numeroale[5][1]);
+            }
+            
+        opcion1=JOptionPane.showInputDialog("DESEA CALCULAR COMISIONES \n 1. SI  \n 0. NO");
+        opc1=Integer.parseInt(opcion1);
+            if(opc1==1)
+            {
+               numeroale[5][2]=200+(int)(Math.random()*500);
+               Lcomi6.setText(""+numeroale[5][2]);
+            }
+            else if(opc1==0)
+            {
+                numeroale[5][2]=0;  
+                Lcomi6.setText(""+numeroale[5][2]);
+            }
+            
+        opcion2=JOptionPane.showInputDialog("DESEA CALCULAR IGSS \n 1. SI  \n 0. NO");
+        opc2=Integer.parseInt(opcion2);
+            if(opc2==1)
+            {
+               numeroale[5][3]=200+(int)(Math.random()*500);
+                Ligss6.setText(""+numeroale[5][3]);
+            }
+            else if(opc2==0)
+            {
+              numeroale[5][3]=0;
+               Ligss6.setText(""+numeroale[5][3]);   
+            }
+            
+        opcion3=JOptionPane.showInputDialog("DESEA CALCULAR DESCUENTO JUDICIAL \n 1. SI  \n 0. NO");
+        opc3=Integer.parseInt(opcion3);
+            if(opc3==1)
+            {
+               numeroale[5][4]=200+(int)(Math.random()*500);
+              Ldescjudi6.setText(""+numeroale[5][4]);
+            }
+            else if(opc3==0)
+            {
+               numeroale[5][4]=0;
+               Ldescjudi6.setText(""+numeroale[5][4]);    
+            }
+            
+        opcion4=JOptionPane.showInputDialog("DESEA CALCULAR ISR \n 1. SI  \n 0. NO");
+        opc4=Integer.parseInt(opcion4);
+            if(opc4==1)
+            {
+                // verifica si el salario base se encuentra en los parametros indicados
+                if(numeroale[5][0]>=2600 && numeroale[5][0]<=5000)
+                {
+                    ISR[5]=(int) (numeroale[5][0]*0.03);
+                    Lisrtotal6.setText(""+ISR[5]);
+                }
+                else if(numeroale[5][0]>=5000 && numeroale[5][0]<=10000)
+                {
+                  ISR[5]=(int) (numeroale[5][0]*0.05);
+                  Lisrtotal6.setText(""+ISR[5]);
+                }
+            }
+            else if(opc4==0)
+            {
+                ISR[5]=0;
+                Lisrtotal6.setText(""+ISR[6]);   
+            }   
+                   
             numeroale[5][5]=numeroale[5][0]+numeroale[5][1]+numeroale[5][2]-numeroale[5][3]-numeroale[5][4]-ISR[5];
             Lsueliqui6.setText(""+numeroale[5][5]);
 
@@ -1011,9 +1072,6 @@ int opc,opc1,opc2,opc3,opc4,opc5;
                 numeroale[4][0]=2000+(int)(Math.random()*5000);
                 Lsuelbase5.setText(""+numeroale[4][0]);
                 
-                
-                              
-        
         opcion=JOptionPane.showInputDialog("DESEA CALCULAR BONIFICACION \n 1. SI  \n 0. NO"); 
         opc=Integer.parseInt(opcion);
             if(opc==1)
