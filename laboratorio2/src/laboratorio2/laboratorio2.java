@@ -15,6 +15,7 @@ int opc,opc1,opc2,opc3,opc4,opc5;
    
     public laboratorio2() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
