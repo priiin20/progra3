@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Karen Roldán 0901-17-63
+    formulario que permite el ingreso de los puestos para guardarlos en la base de datos
  */
 package laboratorio2;
 
@@ -22,7 +21,7 @@ public class puesto_departa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-     
+     // captura los datos  del puesto para mandarlos a la base de datos
     public void ingresopuesto()        
     {
          try
@@ -42,7 +41,7 @@ public class puesto_departa extends javax.swing.JFrame {
             System.out.println("Error "+e);
          }
     }
-    
+    // captura los datos de departamento para guardarlos en la base de datos
     public void ingresodepartamento()
     {
         try{
@@ -165,12 +164,12 @@ public class puesto_departa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // llama a las funciones anteriores
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ingresopuesto();
         ingresodepartamento();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+// regresa a menu principal
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
          menu  regresar=new menu();
         regresar.setVisible(true);

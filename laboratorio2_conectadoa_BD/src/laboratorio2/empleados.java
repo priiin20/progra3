@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Karen Roldán 0901-17-63
+   permite el ingreso de empleados para la base de datos
  */
 package laboratorio2;
 
@@ -73,7 +72,7 @@ public class empleados extends javax.swing.JFrame {
         jPanel1.add(T_nombre_empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 230, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel3.setText("Suldo:");
+        jLabel3.setText("Sueldo:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 166, 97, 27));
 
         T_sueldo_empleado.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -148,7 +147,7 @@ public class empleados extends javax.swing.JFrame {
         regresar.setVisible(true);
          dispose();
     }//GEN-LAST:event_B_regresarActionPerformed
-
+    // guarda los datos escritos y seleccionados en la base de datos
     public void guardardatos()
     {
         
@@ -172,7 +171,7 @@ public class empleados extends javax.swing.JFrame {
         }
     }
   
-      
+     // se encarga de jalar y mostrar en un Combobox los puestos que existen 
     public void mostrarpuesto()
     {
         try{
@@ -192,6 +191,7 @@ public class empleados extends javax.swing.JFrame {
               }
     }
     
+    // se encarga de jalar y mostrar en un Combobox los departamentos que existen 
      public void mostrardepartamento()
     {
         try{

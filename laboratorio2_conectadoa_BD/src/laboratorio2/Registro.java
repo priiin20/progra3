@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Karen Roldán 0901-17-63
+   permite que se puede registrar un empleado asi tendra derecho al ingreso ya sea de Administrador o Usuario
  */
 package laboratorio2;
 import java.sql.*;
@@ -39,8 +38,8 @@ public class Registro extends javax.swing.JFrame {
         T_usuario = new javax.swing.JTextField();
         T_contraseña = new javax.swing.JTextField();
         T_codigo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        B_registro_usuario = new javax.swing.JButton();
+        B_regresar = new javax.swing.JButton();
         L_veri = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         CB_empleado = new javax.swing.JComboBox<>();
@@ -69,19 +68,19 @@ public class Registro extends javax.swing.JFrame {
 
         T_codigo.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jButton1.setText("Regristrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        B_registro_usuario.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        B_registro_usuario.setText("Regristrar");
+        B_registro_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                B_registro_usuarioActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
-        jButton2.setText("Regresar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        B_regresar.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        B_regresar.setText("Regresar");
+        B_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                B_regresarActionPerformed(evt);
             }
         });
 
@@ -114,8 +113,8 @@ public class Registro extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGap(86, 86, 86)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(B_registro_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(B_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(20, 20, 20))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(74, 74, 74)
@@ -176,9 +175,9 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(B_registro_usuario)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(B_regresar)
                         .addGap(21, 21, 21))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(L_veri, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,15 +221,15 @@ public class Registro extends javax.swing.JFrame {
                   System.out.println("Error "+e);
               }
       }
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    //permite regresar al menu
+    private void B_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_regresarActionPerformed
         menu  regresar=new menu();
         regresar.setVisible(true); 
          dispose();
         
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_B_regresarActionPerformed
+    // permite guardar los registros ingresados para la base de Datos
+    private void B_registro_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_registro_usuarioActionPerformed
              //Codigo que permite insertar registros en al base de datos
         try{
             Connection cn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/base_datos", "root", "");
@@ -253,7 +252,7 @@ public class Registro extends javax.swing.JFrame {
         }catch (Exception e){
             System.out.println("Error "+e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_B_registro_usuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,14 +290,14 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_registro_usuario;
+    private javax.swing.JButton B_regresar;
     private javax.swing.JComboBox<String> CB_empleado;
     private javax.swing.JComboBox<String> CB_estado;
     private javax.swing.JLabel L_veri;
     private javax.swing.JTextField T_codigo;
     private javax.swing.JTextField T_contraseña;
     private javax.swing.JTextField T_usuario;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

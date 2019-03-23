@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Karen Roldán 0901-17-63
+    es un menu que solo puede ver el administrador 
  */
 package laboratorio2;
 
@@ -45,10 +44,10 @@ public class menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         B_registrar_Em = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        B_puestodeparta = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        B_concepto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,15 +56,15 @@ public class menu extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setText("Registrar Usuario");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, 31));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, 31));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel2.setText("Buscar Usuario");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 110, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setText("Planilla");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 60, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 60, -1));
 
         B_ver_planilla.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         B_ver_planilla.setText("Aceptar");
@@ -74,7 +73,7 @@ public class menu extends javax.swing.JFrame {
                 B_ver_planillaActionPerformed(evt);
             }
         });
-        jPanel1.add(B_ver_planilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        jPanel1.add(B_ver_planilla, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
 
         B_Registro_Usu.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         B_Registro_Usu.setText("Aceptar");
@@ -83,7 +82,7 @@ public class menu extends javax.swing.JFrame {
                 B_Registro_UsuActionPerformed(evt);
             }
         });
-        jPanel1.add(B_Registro_Usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, -1));
+        jPanel1.add(B_Registro_Usu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         B_Buscar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         B_Buscar.setText("Aceptar");
@@ -92,11 +91,11 @@ public class menu extends javax.swing.JFrame {
                 B_BuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(B_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        jPanel1.add(B_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setText("Registrar Empleado");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 25));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 25));
 
         B_registrar_Em.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         B_registrar_Em.setText("Aceptar");
@@ -105,7 +104,7 @@ public class menu extends javax.swing.JFrame {
                 B_registrar_EmActionPerformed(evt);
             }
         });
-        jPanel1.add(B_registrar_Em, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 66, -1, -1));
+        jPanel1.add(B_registrar_Em, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton1.setText("Cerrar");
@@ -116,85 +115,86 @@ public class menu extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 90, -1));
 
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton2.setText("Aceptar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        B_puestodeparta.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        B_puestodeparta.setText("Aceptar");
+        B_puestodeparta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                B_puestodepartaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+        jPanel1.add(B_puestodeparta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel6.setText("Departamento y Puesto");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 170, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 170, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel7.setText("Concepto");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton3.setText("Aceptar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        B_concepto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        B_concepto.setText("Aceptar");
+        B_concepto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                B_conceptoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+        jPanel1.add(B_concepto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //permite poder registrar un usuario para que pueda ver la planilla
     private void B_Registro_UsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_Registro_UsuActionPerformed
         Registro registro_usuario=new Registro();
         registro_usuario.setVisible(true);
          dispose();
     }//GEN-LAST:event_B_Registro_UsuActionPerformed
-
+    //desplega un formuladio para buscar el empleado en la base de datos
     private void B_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_BuscarActionPerformed
         Buscar buscar=new Buscar();
         buscar.setVisible(true);
         dispose();
     }//GEN-LAST:event_B_BuscarActionPerformed
-
+    //muestra un formulario que permite el ingreso de empleados 
     private void B_registrar_EmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_registrar_EmActionPerformed
          empleados registro=new empleados();
          registro.setVisible(true);
          dispose();
     }//GEN-LAST:event_B_registrar_EmActionPerformed
-
+    // muestra la planilla del administrador este permite regresar al menu
     private void B_ver_planillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_ver_planillaActionPerformed
-        laboratorio2 planilla=new laboratorio2();
+        Planilla_Administrador planilla=new Planilla_Administrador();
         planilla.setVisible(true);
         dispose();
     }//GEN-LAST:event_B_ver_planillaActionPerformed
-
+    // boton que cierra el programa
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          System.exit(WIDTH); 
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    // permite el ingreso del departamento y puesto
+    private void B_puestodepartaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_puestodepartaActionPerformed
         puesto_departa ingreso=new puesto_departa();
         ingreso.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_B_puestodepartaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    //permite el ingreso de los conceptos iggs etc.
+    private void B_conceptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_conceptoActionPerformed
        mantenimiento_concepto concepto=new mantenimiento_concepto ();
        concepto.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_B_conceptoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,11 +234,11 @@ public class menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton B_Buscar;
     private javax.swing.JButton B_Registro_Usu;
+    private javax.swing.JButton B_concepto;
+    private javax.swing.JButton B_puestodeparta;
     private javax.swing.JButton B_registrar_Em;
     private javax.swing.JButton B_ver_planilla;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

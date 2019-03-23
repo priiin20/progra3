@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Karen Roldan 0901-17-63
+    permite el ingreso de los usuarios o administradores
  */
 package laboratorio2;
 
@@ -134,7 +133,7 @@ public class usuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // permite verificar si es un administrador o usuario
     void login(String usuario, String pass) throws SQLException
     {
         
@@ -155,21 +154,21 @@ public class usuarios extends javax.swing.JFrame {
           {
             cap=rs.getString("estado_usuario");  
           }
-          //verifica si es un administrador mostrara los datos para que ingrese
+          //verifica si es un administrador mostrara un menu
           if(cap.equals("Administrador"))
           {
               this.setVisible(false);
-              JOptionPane.showMessageDialog(null,"Bienvenido");
+              JOptionPane.showMessageDialog(null,"Bienvenido Administrador");
               menu ingreso = new menu();
               ingreso.setVisible(true);
               ingreso.pack();  
           }
-          // verifica si es un usuario si es asi desplegara solo la planilla
+          // verifica si es un usuario y desplegara solo la planilla
            if(cap.equals("Usuario"))
           {
               this.setVisible(false);
-              JOptionPane.showMessageDialog(null,"Bienvenido");
-              laboratorio2 ingreso = new laboratorio2();
+              JOptionPane.showMessageDialog(null,"Bienvenido Usuario");
+              Planillas_Usuario ingreso = new Planillas_Usuario();
               ingreso.setVisible(true);
               ingreso.pack();  
           }
@@ -183,7 +182,7 @@ public class usuarios extends javax.swing.JFrame {
               } 
     }
     
-    
+    //boton que verifica el ingreso del usuario
     private void Butt_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Butt_aceptarActionPerformed
         String usuario=T_usuario.getText();
         String pass= new String(T_contraseña.getPassword());

@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Karen Roldan 0901-17-63
+
+ingresa los conceptos como igss, isr etc 
  */
 package laboratorio2;
 
@@ -113,7 +113,7 @@ public class mantenimiento_concepto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // guarda los datos ingresador en la base de datos
     public void guardarconcepto()
     {
         
@@ -134,6 +134,7 @@ public class mantenimiento_concepto extends javax.swing.JFrame {
             System.out.println("Error "+e);
         }
     }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
          menu  regresar=new menu();
         regresar.setVisible(true);

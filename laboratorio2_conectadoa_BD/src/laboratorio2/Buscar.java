@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ Karen Roldán 0901-17-63
+busca a un empleado en la base de datos
  */
 package laboratorio2;
 
@@ -121,6 +120,11 @@ public class Buscar extends javax.swing.JFrame {
 
         B_cerrar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         B_cerrar.setText("Cerrar");
+        B_cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_cerrarActionPerformed(evt);
+            }
+        });
         jPanel2.add(B_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 323, 100, 30));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -149,7 +153,7 @@ public class Buscar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+   // busca a un empleado en la base de datos y los coloca en los lugares indicados 
     void buscar_empleado(String nombre) throws SQLException
     {
         PreparedStatement ps= null;
@@ -172,9 +176,7 @@ public class Buscar extends javax.swing.JFrame {
             
         }
     }
-    
-    
-    
+     // boton que ejecuta buscar
     private void B_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_buscarActionPerformed
         // Busca datos en la base de datos con el nombre
      String nombre= T_buscar.getText();
@@ -185,12 +187,16 @@ public class Buscar extends javax.swing.JFrame {
             Logger.getLogger(Buscar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_B_buscarActionPerformed
-
+    // boton que regresa al menu inicial
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         menu  regresar=new menu();
         regresar.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void B_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_cerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B_cerrarActionPerformed
 
     /**
      * @param args the command line arguments
