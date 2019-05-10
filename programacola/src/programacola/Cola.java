@@ -1,4 +1,5 @@
 /*
+    programa que realiza el ingreso de un dato a la cola la eliminacion de un dato de la cola busqueda 
     Karen Roxana Roldán Hernández
     0901-17-63
  */
@@ -12,6 +13,7 @@ public class Cola {
     Nodo ultimo;
     String opcion, buscar;
     Scanner teclado = new Scanner(System.in);
+    private int longitud=0;
     
     public Cola(){
         primero = null;
@@ -37,6 +39,7 @@ public class Cola {
             nuevo.siguiente= null; 
             ultimo = nuevo; // ahora el dato ultomo es el ingresado
         }
+        longitud++;
       
     }
     
@@ -149,7 +152,39 @@ public class Cola {
         else
         {
             System.out.print("\n la cola se encuentra vacia \n");
-        }         
+        } 
+        longitud--;
         
     }
+    
+    //Metodo para comprobar que la cola no esta vacia
+        public boolean estaVacia()
+        {
+        boolean cola=false;
+        if(primero ==null)
+        {
+        cola=true;
+        System.out.println("\n\n La cola esta vacia");
+        }
+        else
+        {
+        System.out.println("\n\n La cola no esta vacia");
+        mostrarcola();
+        cola=false;
+        }
+        return cola;
+        }
+        
+        
+       //Metodo para contar los elementos de la cola
+     public int contar() {
+		return longitud;
+                 
+	}
+     
+     public void cuantos()
+     {
+         System.out.println("\n\n La cola es de tamaño;   "+longitud);
+     }
+    
 }

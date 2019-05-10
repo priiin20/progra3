@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *programa que realiza el ingreso de un dato a la cola la eliminacion de un dato de la cola busqueda 
  */
 package programacola;
 
@@ -22,7 +20,7 @@ public class Programacola {
         Cola c = new Cola();
         do
         {
-        opcion=JOptionPane.showInputDialog(null," \n MENU \n 1. ingrese dato a la cola \n 2. Mostrar Cola \n 3. buscar nodo  \n 4. Eliminar un nodo de la Cola \n 0. salir ");
+        opcion=JOptionPane.showInputDialog(null," \n MENU \n 1. ingrese dato a la cola \n 2. Mostrar Cola \n 3. buscar nodo  \n 4. Eliminar un nodo de la Cola \n 5. Mostrar si esta vacia o no \n 6. Tamaño de la cola  \n 0. salir ");
         opc=Integer.parseInt(opcion);
         
         switch(opc)
@@ -43,7 +41,18 @@ public class Programacola {
             case 4:
                 
                 c.eliminarnodo();
-            break;    
+            break; 
+            
+             case 5:
+                
+                c.estaVacia();
+            break; 
+            
+            case 6:
+                
+                c.cuantos();
+            break; 
+            
                 
         }
         }while(opc!=0);

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *programa que realiza el ingreso de un dato a la cola la eliminacion de un dato de la cola busqueda 
  */
 package programacola;
 
@@ -12,4 +10,5 @@ public class Nodo {
     
     int dato;
     Nodo siguiente;
+    int length;
 }
